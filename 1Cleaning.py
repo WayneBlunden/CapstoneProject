@@ -47,7 +47,7 @@ for entry in legalCleaned:
         legalParsed.append(entry)
     else:
         parsedEntry = parse(entry)
-        legalParsed.append(parsedEntry.strftime('%m/%d/%Y'))
+        legalParsed.append(parsedEntry.strftime('%Y-%m-%d')) 
 
 for entry in saleCleaned:
     if entry == 'Illegal':
@@ -58,11 +58,13 @@ for entry in saleCleaned:
         saleParsed.append(entry)
     else:
         parsedEntry = parse(entry)
-        saleParsed.append(parsedEntry.strftime('%m/%d/%Y'))
+        saleParsed.append(parsedEntry.strftime('%Y-%m-%d'))
 
 # Replacing original column data from legalization dataframe with cleaned and parsed data 
 legalization['Legalization Date'] = legalParsed
 legalization['Sale Date'] = saleParsed
+
+print(legalization)
 
 
 
