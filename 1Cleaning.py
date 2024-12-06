@@ -5,16 +5,44 @@ import pandas as pd
 import os
 from dateutil.parser import parse
 
-# generating variables and loading data into said variables
-legalization = pd.read_csv('Data\Raw\Legalization.csv')
-legalDate = legalization['Legalization Date']
+# Generating variables and loading data into said variables for cleaning of legalization.csv
+dfLegalization = pd.read_csv('Data\Raw\Legalization.csv')
+legalDate = dfLegalization['Legalization Date']
 legalCleaned = []
 legalParsed = []
-saleDate = legalization['Sale Date']
+saleDate = dfLegalization['Sale Date']
 saleCleaned = []
 saleParsed = []
 
-# Iterating through created lists to remove bracketed data out of each list of dates and appending them to 'Cleaned' list as well as replace null values with Illegal
+# Generating variables and loading data for cleaning of US_Accidents_March23.csv
+dfAccidents = pd.read_csv(r'Data\Raw\Sampled.csv')
+timeParsed = []
+dateParsed = []
+
+# Dropping all columns other than ID, Start_Time, Sunrise_Sunset, State
+dfAccidents = dfAccidents[['ID','Start_Time','Sunrise_Sunset','State']]
+
+# Renaming columns to better describe what we are using
+dfAccidents = dfAccidents.rename(columns={'Sunrise_Sunset':'Day/Night','Start_Time':'Date'})
+
+# Iterating through Date column and parsing the date and time, 
+# then putting the times (formated hh:mm) into timeParsed and dates (formatted mm/dd/yyyy) into dateParsed
+for entry in dfAccidents['Date']:
+    parsedEntry = parse(entry)
+    timeParsed.append(parsedEntry.strftime('%H:%M'))
+    dateParsed.append(parsedEntry.strftime('%m/%d/%Y'))
+
+# Creating a new column to hold Time value and loading the parsed time data pulled out of the Date column
+dfAccidents.insert(loc=2,column='Time',value=timeParsed)
+
+# Replacing the joined date and time value in Date column with the parsed date data only
+dfAccidents['Date'] = dateParsed
+
+print(dfAccidents)
+
+
+# Iterating through lists created from legalization.csv to remove bracketed data out of each list of dates and appending them to 'Cleaned' list 
+# as well as replace null values with Illegal
 for entry in legalDate:
     if type(entry) == float:
         entry = 'Illegal'
@@ -47,7 +75,7 @@ for entry in legalCleaned:
         legalParsed.append(entry)
     else:
         parsedEntry = parse(entry)
-        legalParsed.append(parsedEntry.strftime('%Y-%m-%d')) 
+        legalParsed.append(parsedEntry.strftime('%m/%d/%Y')) 
 
 for entry in saleCleaned:
     if entry == 'Illegal':
@@ -58,18 +86,8 @@ for entry in saleCleaned:
         saleParsed.append(entry)
     else:
         parsedEntry = parse(entry)
-        saleParsed.append(parsedEntry.strftime('%Y-%m-%d'))
+        saleParsed.append(parsedEntry.strftime('%m/%d/%Y'))
 
 # Replacing original column data from legalization dataframe with cleaned and parsed data 
-legalization['Legalization Date'] = legalParsed
-legalization['Sale Date'] = saleParsed
-
-print(legalization)
-
-
-
-
-
-
-
-
+dfLegalization['Legalization Date'] = legalParsed
+dfLegalization['Sale Date'] = saleParsed

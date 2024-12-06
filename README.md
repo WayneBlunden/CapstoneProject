@@ -31,15 +31,15 @@ You will need two datafiles to start with
  - **US_Accidents_March23.csv** can be downloaded from [kaggle.com](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). Download the zip file and ensure it is saved in the /Data/Raw directory created when generating 'Legalization.csv'
 
 ### 3. Data Discovery
-Jupyter notebook was utilized to complete the data discovery of US_Accidents_March23.csv. Due to the size of the dataset the Discovery.ipynb file was too large to upload to GitHub. If you would like to view it, it can be downloaded from (?google drive location?)
+Jupyter notebook was utilized to complete the data discovery of US_Accidents_March23.csv. Due to the size of the dataset the Discovery.ipynb file was too large to upload to GitHub. If you would like to view it, it can be downloaded from (?google drive location?). Some information was also gathered from the paper that was published based off of this date. It was found linked in the discussion topic "Source meaning" for ease of locating it can be found at: https://dl.acm.org/doi/abs/10.1145/3347146.3359078. 
 
 ### 4. Cleaning Phase
-You will run the python script labeled **Cleaning.py**. This script will run through the tasks listed below to generate a final clean data set to use with our visualaztions and analysis.
+You will run the python script labeled **Cleaning.py**. This script will run through the tasks listed below to generate a final clean data set to use with our visualizations and analysis.
 - Load previously made legalization.csv 
 - Pull data from 'Legalization Date' and 'Sale Date' columns into individual lists for iteration. This is done to prevent iterating through the dataframe directly. 
     - Remove bracketed numbers located in some dates
     - Replace previous 'null' entries
-    - Reformat listed dates into mm/dd/yyyy format
+    - Reformat listed dates into yyyy-mm-dd format to match US_Accidents_March23 dataset's date format
     - Replace original Legalization Date and Sale Date columns with the recently cleaned and formated lists
 - Load US_Accidents_March23.csv 
     - Drop extraneous columns
