@@ -7,7 +7,6 @@ GitBash/Terminal
 ??Database tool??
 This project was conducted using python, focusing on the Pandas library, to generate and clean the data for analysis. Tableau was used for final visualizations. 
 Other libraries used throughout the project
- - SQLite
  - OS
  - Wikipedia
  - Dateutil.parser
@@ -24,6 +23,7 @@ Before you can begin running the project you will need to download the **US_Acci
 ### 3. Create a virtual Environment
 - Open your Terminal/GitBash and navigate to the directory you cloned the repo to
 - Run the below commands to create the virtual environment, install the required libraries, and activate the virtual environment. 
+
 | Step | Description | Code | 
 | ---- | ----------- | ---- | 
 | 1    | Navigate to the desired folder in gitbash/terminal. Clone the Repo to your machine   |     |

@@ -71,7 +71,7 @@ stateToAbbr = {
     "Washington, D.C.": "DC"
 }
 # Generating variables and loading data for cleaning of US_Accidents_March23.csv
-dfAccidents = pd.read_csv(r'Data\Raw\US_Accidents_March23.csv.csv')
+dfAccidents = pd.read_csv(r'Data\Raw\US_Accidents_March23.csv')
 timeParsed = []
 dateParsed = []
 

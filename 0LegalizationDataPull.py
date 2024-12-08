@@ -42,5 +42,7 @@ dfLegality.loc[dfLegality.State == 'Washington (state)','State'] = 'Washington'
 # Joining two tables to create a table that lists all 50 US states and Washington D.C. and the legality of marijuana in them
 dfMerged = pd.merge(dfLegality, dfStates,how='right')
 
+
+
 # Export dataframe of imported legalization data to .csv file
 dfMerged.to_csv(cwd + '/Data/Raw/Legalization.csv',index=False)
