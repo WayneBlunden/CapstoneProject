@@ -5,10 +5,10 @@ This segment of code will pull two tables from Wikipedia and merge them into a s
     This table is output to a .csv file [Legalization.csv]. This bit of code also does some quick preliminary cleaning to make exported dataset easier to manage in the 
     'Cleaning' stage. 
 '''
-
+# Importing requisite libraries
 import pandas as pd
-import wikipedia
 import os
+import wikipedia
 
 # Finding the current working directory and loading it into variable cwd
 cwd = os.getcwd()
@@ -30,17 +30,17 @@ dfLegality = pd.DataFrame(legality)
 dfStates = pd.DataFrame(states)
 
 # Dropping unwanted columns from both dataframes
-dfStates = dfStates[['State']]
-dfLegality = dfLegality.drop('Legalization method',axis=1)
+dfStates = dfStates[['State']] # removes all columns but 'State'
+dfLegality = dfLegality.drop('Legalization method',axis=1) # Drops just the 'Legalization method' column 
 
-# Standardizing column names for future JOIN and Description
+# Standardizing 'State' column names for future JOIN and updating column names for preferred dispay name
 dfLegality = dfLegality.rename(columns={'Jurisdiction':'State','Effective date':'Legalization Date','Licensed sales since':'Sale Date'})
 
 # Cleaning of entries into column 'State' for future JOIN 
 dfLegality.loc[dfLegality.State == 'Washington (state)','State'] = 'Washington'
 
-# Joining two tables
+# Joining two tables to create a table that lists all 50 US states and Washington D.C. and the legality of marijuana in them
 dfMerged = pd.merge(dfLegality, dfStates,how='right')
 
 # Export dataframe of imported legalization data to .csv file
-dfMerged.to_csv(os.path.join(cwd,'Data\Raw', 'Legalization.csv'),index=False)
+dfMerged.to_csv(cwd + '/Data/Raw/Legalization.csv',index=False)
