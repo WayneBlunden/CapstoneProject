@@ -1,24 +1,42 @@
-# Code:You Capstone Project: Data Analysis Pathway
-This project intends to analyze traffic accident data throughout the US between 2016 and 2023. It will also look at the affect of marijauna legalization on accidents in those states where it has been made legal in some form. Utilizing the various python scripts in this repository we will acquire our raw data to feed into the cleaning program, clean the data for final review, and finally use the cleaned data to answer several questions and provide visualizations of that data.
+# 'Code:You' Capstone Project: Data Analysis Pathway
+This project intends to analyze traffic accident data throughout the US between 2016 and 2023. It will also look at the affects (if any) of marijauna legalization on accidents in those states where it has been made legal in some form. Utilizing the various python scripts in this repository we will acquire our raw data to feed into the cleaning program, clean the data for final review, and finally analyze the cleaned data to answer several questions and provide visualizations of that data.
 
-### Tools Used
+## Tools Used
 
-GitBash/Terminal
-??Database tool??
-This project was conducted using python, focusing on the Pandas library, to generate and clean the data for analysis. Tableau was used for final visualizations. 
-Other libraries used throughout the project
- - OS
- - Wikipedia
- - Dateutil.parser
+- GitBash/Terminal
+- Python (specific libraries below)
+    - Pandas
+    - OS
+    - Wikipedia
+    - Dateutil.parser
+- Tableau
 
-## Start Here
+## Chosen Features from Data Analysis Capstone Features List
+#### Loading Data
+- Scrape TWO pieces of data from anywhere on the internet and utilize it in your project
+    - Scrape two tables from Wikipedia
+#### Clean and Operate on the Data While Combining Them
+- Clean your data and perform a pandas merge with your two datasets, then calculate some new values based on the new data set
+    - Cleaned and merged the two tables scraped from Wikipedia 
+    - Cleaned and merged the above data (Legalization.csv) and the read in CSV data (US_Accidents_March23)
+#### Visualize/Present Your Data
+- Make a Tableau dashboard to display your data
+#### Best Practices
+- Utilize a virtual environment and include instructions in your README on how the user should set one up
+#### Interpretation of Your Data
+- Annotate your .py files with well written comments and a clear README.md
+
+<br>
+<br>
+
+# To Run the Project Start Here
 
 ### 1. Clone the repo from GitHub
 - Create a new folder to run project in. 
-- Clone the repo from GitHub. The link for the repo is https://github.com/WayneBlunden/CapstoneProject.git
+- Navigate to the newly created plan folder in GitBash/Terminal and clone the repo from GitHub. The link for the repo is https://github.com/WayneBlunden/CapstoneProject.git
 
 ### 2. Needed Datafile
-Before you can begin running the project you will need to download the **US_Accidents_March23.csv** dataset. **US_Accidents_March23.csv** can be downloaded from [kaggle.com](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). Download the zip file and save the unzipped file into the /Data/Raw directory created when cloning the repo
+Before you can begin running the project you will need to download the **US_Accidents_March23.csv** dataset. This dataset was too large to be included in the repo itself. **US_Accidents_March23.csv** can be downloaded from [kaggle.com](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). Download the file and save the unzipped file into the /Data/Raw directory created when cloning the repo
 
 ### 3. Create a virtual Environment
 - Open your Terminal/GitBash and navigate to the directory you cloned the repo to
@@ -26,7 +44,7 @@ Before you can begin running the project you will need to download the **US_Acci
 
 | Step | Description | Code | 
 | ---- | ----------- | ---- | 
-| 1    | Navigate to the desired folder in gitbash/terminal. Clone the Repo to your machine   |     |
+| 1    | Within GitBash/Terminal, navigate to the desired folder.    |     |
 |2     | Create a virtual environment in the project folder. | python3 -m venv venv |
 |3     | Activate the virtual environment |  |
 |  | Windows: | source venv/Scripts/activate |
@@ -34,24 +52,20 @@ Before you can begin running the project you will need to download the **US_Acci
 | 4    | Install the required packages | pip install -r requirements.txt |
 | 5    | When you are done working deactivate the environment | deactivate |
 
+### 4. Run 0LegalizationDataPull.py
+This script will scrape two tables from wikipedia, do some basic cleaning to prepare them for merging, merge them, and export the merged table to Legalization.csv. 
 
+### 5. Run 1Cleaning.py
+This script will clean Legalization.csv and US_Accidents_March23.csv, merge the two tables, and export them to AccidentsFinal.csv.
 
-### 4. Data Discovery
-Jupyter notebook was utilized to complete the data discovery of US_Accidents_March23.csv. During discovery we reviewed which columns can be used for our analysis based off of the needed datapoints. We checked the format of the data in the columns and looked for any null values.  
+<ul>
+Note: The US_Accidents_March23.csv dataset is extremely large running this script will take some time. 
+</ul>
 
-### 5. Cleaning Phase
-You will run the python script labeled **Cleaning.py**. This script will run through the tasks listed below to generate a final clean data set to use with our visualizations and analysis.
-- Load previously made legalization.csv 
-- Pull data from 'Legalization Date' and 'Sale Date' columns into individual lists for iteration. This is done to prevent iterating through the dataframe directly. 
-    - Remove bracketed numbers located in some dates
-    - Replace previous 'null' entries
-    - Reformat listed dates into yyyy-mm-dd format to match US_Accidents_March23 dataset's date format
-    - Replace original Legalization Date and Sale Date columns with the recently cleaned and formated lists
-- Load US_Accidents_March23.csv 
-    - Drop extraneous columns
-
-### 4. Analysis ?????
+### 4. Run 2Analysis.py 
+This script will analyze AccidentsFinal.csv for visualization.
 
 ### 5. Visualization
+Tableau was used to visualize the data, you can find the dashboard [here](www.dashboardURL.com)
 
 ### 6. ?Profit?
