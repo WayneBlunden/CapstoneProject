@@ -1,5 +1,5 @@
 # 'Code:You' Capstone Project: Data Analysis Pathway
-This project intends to analyze traffic accident data throughout the US between 2016 and 2023. It will also look at the affects (if any) of marijauna legalization on accidents in those states where it has been made legal in some form. Utilizing the various python scripts in this repository we will acquire our raw data to feed into the cleaning program, clean the data for final review, and finally analyze the cleaned data to answer several questions and provide visualizations of that data.
+This project intends to analyze traffic accident data throughout the US between 2016 and 2023. We will be looking at total accidents by state throughout the timeframe and the breakdown of accidents by night or day. It will also look at the affects (if any) of marijauna legalization on Arizona and Illinois. While there are numerous other states that have legalized marijuana these two both were legalized in 2020. They will allow for the largest amount of data on both sides of the legalization date. Utilizing the various python scripts and Jupyter notebooks in this repository we will acquire our raw data to feed into the cleaning program, clean the data for final review, and finally analyze the cleaned data to answer the previously mentioned questions and provide visualizations of that data.
 
 ## Tools Used
 
@@ -9,18 +9,21 @@ This project intends to analyze traffic accident data throughout the US between 
     - OS
     - Wikipedia
     - Dateutil.parser
-- Tableau
+    - MatPlotLib
+    - Numpy
+- Jupyter Notebooks was used for datadiscovery (Discovery.ipynb) and analysis (2Analysis.ipynb)
+
 
 ## Chosen Features from Data Analysis Capstone Features List
 #### Loading Data
 - Scrape TWO pieces of data from anywhere on the internet and utilize it in your project
     - Scrape two tables from Wikipedia
 #### Clean and Operate on the Data While Combining Them
-- Clean your data and perform a pandas merge with your two datasets, then calculate some new values based on the new data set
+- Clean data and perform a pandas merge with your two datasets, then calculate some new values based on the new data set
     - Cleaned and merged the two tables scraped from Wikipedia 
-    - Cleaned and merged the above data (Legalization.csv) and the read in CSV data (US_Accidents_March23)
+    - Cleaned and merged the above data (Legalization.csv) and the read in CSV data (US_Accidents_March23.csv)
 #### Visualize/Present Your Data
-- Make a Tableau dashboard to display your data
+- Make 3 matplotlib or seaborn visualizations to display your data
 #### Best Practices
 - Utilize a virtual environment and include instructions in your README on how the user should set one up
 #### Interpretation of Your Data
@@ -31,14 +34,16 @@ This project intends to analyze traffic accident data throughout the US between 
 
 # To Run the Project Start Here
 
+## Preliminary Steps
 ### 1. Clone the repo from GitHub
 - Create a new folder to run project in. 
 - Navigate to the newly created plan folder in GitBash/Terminal and clone the repo from GitHub. The link for the repo is https://github.com/WayneBlunden/CapstoneProject.git
 
 ### 2. Needed Datafile
-Before you can begin running the project you will need to download the **US_Accidents_March23.csv** dataset. This dataset was too large to be included in the repo itself. **US_Accidents_March23.csv** can be downloaded from [kaggle.com](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). Download the file and save the unzipped file into the /Data/Raw directory created when cloning the repo
+The dataset US_Accidents_March23 is too large to upload to GitHub so it is not included in this repo, the unzipped file is 2.84 GB before being cleaned. To run this project you will need to download the US_Accidents_March23.csv dataset. It can be downloaded from [kaggle.com](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). Download the file and save the unzipped file into the /Data/Raw directory created when cloning the repo before you begin. The remaining dataset used in this project is generated in the project itself.
 
 ### 3. Create a virtual Environment
+To isolate this project from your computer we will be running it within a virtual environment. Follow the instructions below to create and activate the virtual environment.
 - Open your Terminal/GitBash and navigate to the directory you cloned the repo to
 - Run the below commands to create the virtual environment, install the required libraries, and activate the virtual environment. 
 
@@ -50,22 +55,23 @@ Before you can begin running the project you will need to download the **US_Acci
 |  | Windows: | source venv/Scripts/activate |
 |  | Other: | source venv/bin/activate |
 | 4    | Install the required packages | pip install -r requirements.txt |
-| 5    | When you are done working deactivate the environment | deactivate |
+| 5    | When you are done working deactivate the environment. | deactivate |
 
+## Data Acquisition and Cleaning
 ### 4. Run 0LegalizationDataPull.py
 This script will scrape two tables from wikipedia, do some basic cleaning to prepare them for merging, merge them, and export the merged table to Legalization.csv. 
 
 ### 5. Run 1Cleaning.py
-This script will clean Legalization.csv and US_Accidents_March23.csv, merge the two tables, and export them to AccidentsFinal.csv.
+This script will utilize Pandas to remove missing values, standardize formatting for dates and column headings, and parse single date/time data points into separate values for individual columns. It will also merge the separate tables on the 'State' attribute to be used for future analysis. Finally it will output the final table to a .csv file to be used by 2Analysis.ipynb in visualizations
 
 <ul>
 Note: The US_Accidents_March23.csv dataset is extremely large running this script will take some time. 
 </ul>
 
-### 4. Run 2Analysis.py 
-This script will analyze AccidentsFinal.csv for visualization.
+### 4. Run 2Analysis.ipynb
+This script will analyze AccidentsFinal.csv for visualization. We will use Matplotlib to visualization the data upon analysis.
 
-### 5. Visualization
-Tableau was used to visualize the data, you can find the dashboard [here](www.dashboardURL.com)
+    **Note:** The .csv file created from 1Cleaning.py is too large to push to GitHub. 
 
-### 6. ?Profit?
+### 5. Findings
+From the visualizations we found that California far outstrips all other states in number of accidents during the tracked time frame, and South Dakota had the fewest number of accidents. 
