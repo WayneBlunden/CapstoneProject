@@ -71,7 +71,7 @@ Note: The US_Accidents_March23.csv dataset is extremely large running this scrip
 ### 4. Run 2Analysis.ipynb
 This script will analyze AccidentsFinal.csv for visualization. We will use Matplotlib to visualization the data upon analysis.
 
-    **Note:** The .csv file created from 1Cleaning.py is too large to push to GitHub. 
+    Note: AccidentFinal.csv, the file created while running 1Cleaning.py, is 404MB and too large to push to GitHub. Because of this it is not included in the Repo. If you run the project it will generate it but if you would prefer to just view the file it can be seen [here](https://drive.google.com/file/d/1PasKVrLbcio8Z-CqDdhGrDBgXLxK3mHa/view?usp=sharing). 
 
 ### 5. Findings
 From the visualizations we found that California far outstrips all other states in number of accidents during the tracked time frame, and South Dakota had the fewest number of accidents. 
