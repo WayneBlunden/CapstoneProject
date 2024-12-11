@@ -159,4 +159,4 @@ dfAccidents.dropna(subset=['Day/Night'],inplace=True)
 # Merge dfAccidents and dfLegalization to make final dataframe. 
 dfFinal = pd.merge(dfAccidents,dfLegalization,on='State')
 
-dfFinal.to_csv(cwd + '/Data/Clean/AccidentsFinal.csv')
+dfFinal.to_csv(cwd + '/Data/Clean/AccidentsFinal.csv', index=False)
