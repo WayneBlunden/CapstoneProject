@@ -17,11 +17,15 @@ This project intends to analyze traffic accident data throughout the US between 
 ## Chosen Features from Data Analysis Capstone Features List
 #### Loading Data
 - Scrape TWO pieces of data from anywhere on the internet and utilize it in your project
-    - Scrape two tables from Wikipedia
+    - Scrape two tables from Wikipedia.
+        - A list of minimum wage by state in US 
+        - Marijuana legalization by Jurisdiction in the US and territories
+- Load a file in
+    - Loading in US_Accidents_March23.csv
 #### Clean and Operate on the Data While Combining Them
 - Clean data and perform a pandas merge with your two datasets, then calculate some new values based on the new data set
     - Cleaned and merged the two tables scraped from Wikipedia 
-    - Cleaned and merged the above data (Legalization.csv) and the read in CSV data (US_Accidents_March23.csv)
+    - Cleaned and merged the previously created data (Legalization.csv) and the read in CSV data (US_Accidents_March23.csv)
 #### Visualize/Present Your Data
 - Make 3 matplotlib or seaborn visualizations to display your data
 #### Best Practices
@@ -71,7 +75,7 @@ Note: The US_Accidents_March23.csv dataset is extremely large running this scrip
 ### 4. Run 2Analysis.ipynb
 This script will analyze AccidentsFinal.csv for visualization. We will use Matplotlib to visualization the data upon analysis.
 
-    Note: AccidentFinal.csv, the file created while running 1Cleaning.py, is 404MB and too large to push to GitHub. Because of this it is not included in the Repo. If you run the project it will generate it but if you would prefer to just view the file it can be seen [here](https://drive.google.com/file/d/1PasKVrLbcio8Z-CqDdhGrDBgXLxK3mHa/view?usp=sharing). 
+Note: AccidentFinal.csv, the file created while running 1Cleaning.py, is 404MB and too large to push to GitHub. Because of this it is not included in the Repo. If you run the project it will generate it but if you would prefer to just view the file it can be seen [here](https://drive.google.com/file/d/1PasKVrLbcio8Z-CqDdhGrDBgXLxK3mHa/view?usp=sharing). 
 
 ### 5. Findings
-From the visualizations we found that California far outstrips all other states in number of accidents during the tracked time frame, and South Dakota had the fewest number of accidents. 
+From the visualizations we found that California far outstrips all other states in number of accidents during the tracked time frame, and South Dakota had the fewest number of accidents. Our second visualization shows the larger proportion of accidents occur during the day. We also show that the number of accidents did go down in Illinois and Arizona after marijuana legalization. The assumptions can be made that California has the most accidents due to population and city sizes, and that most accidents happen during the day because that is when the most people are out. But that is all those are, assumptions. It is interesting to see that accident counts went down after marijuana legalization for the two cities listed, but ultimately the dataset is too small to draw any meaningful conclusions. These graphs do provide interesting places to begin future research and analysis projects though. 
