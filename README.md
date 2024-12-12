@@ -45,6 +45,8 @@ A data dictionary is stored in the /Data file of the repo. This file defines the
 ### 1. Clone the repo from GitHub
 - Create a new folder to run project in. 
 - Navigate to the newly created plan folder in GitBash/Terminal and clone the repo from GitHub. The link for the repo is https://github.com/WayneBlunden/CapstoneProject.git
+    - Code used to clone repo -> git clone https://github.com/WayneBlunden/CapstoneProject.git
+    Note: You can use 'shift + Insert' to paste into GitHub
 
 ### 2. Needed Datafile
 The dataset US_Accidents_March23 is too large to upload to GitHub so it is not included in this repo, the unzipped file is 2.84 GB before being cleaned. To run this project you will need to download the US_Accidents_March23.csv dataset. It can be downloaded from [kaggle.com](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). Download the file and save the unzipped file into the /Data/Raw directory created when cloning the repo before you begin. The remaining dataset used in this project is generated in the project itself.
@@ -68,10 +70,11 @@ To isolate this project from your computer we will be running it within a virtua
 ## Data Acquisition, Cleaning, and Analysis
 ### 4. Run 0LegalizationDataPull.py
 This script will scrape two tables from wikipedia, do some basic cleaning to prepare them for merging, merge them, and export the merged table to Legalization.csv. 
+- If running directly from GitBash/Terminal rather than an IDE, the code used to run this script -> python 0LegalizationDataPull.py OR python3 0LegalizationDataPull.py
 
 ### 5. Run 1Cleaning.py
 This script will utilize Pandas to remove missing values, standardize formatting for dates and column headings, and parse single date/time data points into separate values for individual columns. It will also merge the separate tables on the 'State' attribute to be used for future analysis. Finally it will output the final table to a .csv file, AccidentsFinal.csv, to be used by 2Analysis.ipynb in visualizations.
-
+- If running directly from GitBash/Terminal rather than an IDE, the code used to run this script -> python 1Cleaning.py OR python3 1Cleaning.py
 <ul>
 Note: The US_Accidents_March23.csv dataset is extremely large running this script will take some time. 
 </ul>
