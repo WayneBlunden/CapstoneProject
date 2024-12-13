@@ -1,12 +1,12 @@
-'''This coding block will be used to clean and normalize the raw dataframes Legalization.csv (dfLegalization) and US_Accidents_March23 (dfAccidents) 
-/ in order to generate the final clean dataset.'''
+'''This coding block will be used to clean and normalize the raw dataframes Legalization.csv (dfLegalization) and US_Accidents_March23.csv (dfAccidents) 
+/ in order to generate the final clean dataset (AccidentsFinal.csv).'''
 
 # Import requisite libraries
 import pandas as pd
 import os
 from dateutil.parser import parse
 
-# Generating variables and loading data into said variables for cleaning of legalization.csv
+# Generating variables and loading data into said variables for cleaning of Legalization.csv
 cwd = os.getcwd()
 dfLegalization = pd.read_csv(r'Data\Raw\Legalization.csv')
 legalDate = dfLegalization['Legalization Date']
@@ -90,11 +90,11 @@ for entry in dfAccidents['Date']:
 # Creating a new column in dfAccidents to hold Time value and loading the parsed time data pulled out of the Date column
 dfAccidents.insert(loc=2,column='Time',value=timeParsed)
 
-# Replacing the joined date and time value in Date column with the parsed date data only
+# Replacing the combined date and time value in Date column with the parsed date data only
 dfAccidents['Date'] = dateParsed
 
 # Iterating through lists, legalDate and saleDate, created from legalization.csv to remove bracketed data out of each list of dates and appending them to 'Cleaned' list 
-# as well as replace null values with Illegal
+# as well as replace null values with the string 'Illegal'
 for entry in legalDate:
     if type(entry) == float: # if iterated data is null its type is float 
         entry = 'Illegal' # replacing all float datatypes with 'Illegal'
@@ -116,10 +116,10 @@ for entry in saleDate:
         if type(entry) == str: # if iterated data is a str it is not null
             index = entry.find('[') # finding the first instance of an open bracket in the iterated string
             if index == -1: # if index is '-1' open bracket does not exist in iterated string
-                saleCleaned.append(entry)
+                saleCleaned.append(entry) # append iterated value to designated list
             else:
                 entry = entry[:index] # slicing off the end of the iterated string at the index value
-                saleCleaned.append(entry)
+                saleCleaned.append(entry) # append iterated value to designated list
 
 # Iterating through 'varCleaned' lists to update date format from 'Month dd, yyyy' to 'mm/dd/yyyy'
 for entry in legalCleaned:
@@ -138,7 +138,7 @@ for entry in saleCleaned:
         saleParsed.append(entry)
     else:
         parsedEntry = parse(entry) # if iterated string is anything other than previous if/elif statements parsing it into datetime datatype
-        saleParsed.append(parsedEntry.strftime('%m/%d/%Y')) # formatting datetime datatype to mm/dd/yyyy
+        saleParsed.append(parsedEntry.strftime('%m/%d/%Y')) # formatting datetime datatype to mm/dd/yyyy and appending it to designated list
 
 # Iterating through column named 'State' in dfLegalization searching for entry in the key value of stateToAbbr list 
 # and appending the associated value to stateAbbr
