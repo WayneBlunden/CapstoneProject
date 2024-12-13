@@ -14,7 +14,7 @@ This project intends to analyze traffic accident data throughout the US between 
 - Jupyter Notebooks
 
 ## Data Dictionary
-A data dictionary is stored in the /Data file of the repo. This file defines the variables used throughout the various scripts, their data types and notes of what they are used for. 
+A data dictionary is stored in the /Data file of the repo. This file defines the variables used throughout the various scripts, their data types, and notes of what they are used for. 
 
 
 ## Chosen Features from Data Analysis Capstone Features List
@@ -49,7 +49,7 @@ A data dictionary is stored in the /Data file of the repo. This file defines the
     Note: You can use 'shift + Insert' to paste into GitHub
 
 ### 2. Needed Datafile
-The dataset US_Accidents_March23 is too large to upload to GitHub so it is not included in this repo, the unzipped file is 2.84 GB before being cleaned. To run this project you will need to download the US_Accidents_March23.csv dataset. It can be downloaded from [kaggle.com](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). Download the file and save the unzipped file into the /Data/Raw directory created when cloning the repo before you begin. The remaining datasets used in this project are generated when running 0LegalizationDataPull.py.
+The dataset US_Accidents_March23 is too large (2.84GB before cleaning) to upload to GitHub so it is not included in this repo. To run this project you will need to download the US_Accidents_March23.csv dataset. It can be downloaded from [kaggle.com](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). Click on the "Download" button at the top right hand corner to download the file and save the unzipped file into the /Data/Raw directory created when cloning the repo before you begin. The remaining datasets used in this project are generated when running 0LegalizationDataPull.py.
 
 ### 3. Create a virtual Environment
 To isolate this project from your computer we will be running it within a virtual environment. Follow the instructions below to create and activate the virtual environment.
